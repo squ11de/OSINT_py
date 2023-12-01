@@ -26,7 +26,7 @@ otx_api_key = "YOUR_OTX_API_KEY_HERE"
 
 
 
-def url():
+def domain():
     user_input = input("Please enter a URL: ")
 
     # X-Force API request
@@ -219,17 +219,17 @@ if __name__ == "__main__":
     print(ascii_art)
     while True:
         print()
-        ur_choice = input("Would you like to perform OSINT on a hash, URL, or IP address? ").lower()
+        ur_choice = input("Would you like to perform OSINT on a Hash, Domain, or IP address? ").lower()
         if ur_choice == "hash":
             hash()
             break
-        elif ur_choice == "url":
-            url()
+        elif ur_choice == "domain":
+            domain()
             break
         elif ur_choice == "ip":
             ip()
             break
         else:
-            print("Invalid input. Please enter hash, url, or ip. Check your spelling!")
+            print("Invalid input. Please enter Hash, Domain, or IP. Check your spelling!")
 
 
