@@ -1,3 +1,22 @@
+#Hello! if you do not know where to get the API keys they can be grathred by making an account for
+
+#IBM X-Force, VirusTotal and OTX. After making those accounts you can go here to get the keys:
+
+ 
+
+#X-Force - https://exchange.xforce.ibmcloud.com/settings/api
+
+#VirusTotal - https://www.virustotal.com/gui/user/<Your_User_name_here>/apikey
+
+#OTX - https://otx.alienvault.com/api
+
+
+#You also need to run the following command in terminal  
+#[pip3 install requests] this will install python library needed to make GET requests to Vt, Otx and X-Force
+#[pip3 install bs4] this will be used to help parse spur
+
+
+
 import requests
 from bs4 import BeautifulSoup
 
