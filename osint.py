@@ -129,13 +129,15 @@ def hash():
 
         signature_info = data.get("data", {}).get("attributes", {}).get("signature_info", {})
         signature_verified = signature_info.get("verified", "No verification info found")
-        signature_product = signature_info.get("product", "No product info found")
+        signature_product = signature_info.get("signers", "No product info found")
+        char_to_cut = ";"
+        first_sig = signature_product.split(char_to_cut)[0]
         print("OSINT")
         print(f"-{user_input}")
         if total_detections == 0:
             print("VirusTotal | Unknown")
         elif signature_verified != "No verification info found":
-            print(f"VirusTotal | {malicious_count}/{total_detections} | File is signed | {signature_product}")
+            print(f"VirusTotal | {malicious_count}/{total_detections} | File is signed | Signed by {first_sig}")
         else:
             print(f"VirusTotal | {malicious_count}/{total_detections} | File is not signed")
     except:
@@ -164,7 +166,7 @@ def hash():
             print("OTX | Unknown")
         else:
             score = otx_response.get("pulse_info", {}).get("count", 0)
-            formatted_otx_score = f"OTX | {score}"
+            formatted_otx_score = f"OTX | Pulses {score}"
             print(formatted_otx_score)
     
     
