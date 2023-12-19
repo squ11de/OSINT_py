@@ -32,7 +32,6 @@ otx_api_key = "YOUR_OTX_API_KEY_HERE"
 
 
 
-
 def domain():
     user_input = input("Please enter a Domain: ")
 
@@ -45,7 +44,8 @@ def domain():
         malicious_count = analysis_stats.get("malicious", 0)
         non_malicious_count = analysis_stats.get("undetected", 0) + analysis_stats.get("harmless", 0)
         registrar = data.get("data", {}).get("attributes", {}).get("registrar", "")
-
+        print("OSINT")
+        print(f"-{user_input}")
         if malicious_count == 0 and non_malicious_count == 0:
             print("VirusTotal | Unknown")
         elif registrar:
@@ -130,12 +130,11 @@ def hash():
         signature_info = data.get("data", {}).get("attributes", {}).get("signature_info", {})
         signature_verified = signature_info.get("verified", "No verification info found")
         signature_product = signature_info.get("product", "No product info found")
-
+        print("OSINT")
+        print(f"-{user_input}")
         if total_detections == 0:
             print("VirusTotal | Unknown")
         elif signature_verified != "No verification info found":
-            print("OSINT")
-            print(f"-{user_input}")
             print(f"VirusTotal | {malicious_count}/{total_detections} | File is signed | {signature_product}")
         else:
             print(f"VirusTotal | {malicious_count}/{total_detections} | File is not signed")
@@ -197,6 +196,8 @@ def ip():
         analysis_stats = data.get("data", {}).get("attributes", {}).get("last_analysis_stats", {})
         malicious_count = analysis_stats.get("malicious", 0)
         total_detections = sum(analysis_stats.values())
+        print("OSINT")
+        print(f"-{user_input}")
 
         country = data.get("data", {}).get("attributes", {}).get("country", "No country info found")
         if total_detections == 0:
@@ -335,5 +336,8 @@ if __name__ == "__main__":
             break
         else:
             print("Invalid input. Please enter hash, domain, or ip. Check your spelling!")
+
+
+
 
 
