@@ -27,7 +27,7 @@ xforce_api_key = "YOUR_X-FROCE_API_KEY_HERE"
 xforce_api_password = "YOUR_X-FORCE_API_PASSWORD_HERE"
 virustotal_api_key = "YOUR_VIRUSTOTAL_API_KEY_HERE"
 otx_api_key = "YOUR_OTX_API_KEY_HERE"
-
+abuseipdb_api_key = "YOUR_ABUSE_IPDB_KEY_HERE"
 
 
 
@@ -338,6 +338,7 @@ if __name__ == "__main__":
             break
         else:
             print("Invalid input. Please enter hash, domain, or ip. Check your spelling!")
+
 
 
 
